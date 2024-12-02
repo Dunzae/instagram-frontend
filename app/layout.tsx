@@ -1,6 +1,17 @@
+import { Metadata, Viewport } from "next";
 import "./globals.css";
 import ReactQueryProvider from "./ReactQueryProvider";
 import { CounterStoreProvider } from "./zustand/providers/counter";
+
+export const metadata: Metadata = {
+  title: 'instagram',
+  description: 'instagram clone project',
+}
+
+export const viewport : Viewport = {
+  initialScale : 1,
+  width : "device-width"
+}
 
 export default function RootLayout({
   children,
@@ -13,7 +24,9 @@ export default function RootLayout({
       <body>
         <ReactQueryProvider>
           <CounterStoreProvider>
-            {children}
+            <main>
+              {children}
+            </main>
           </CounterStoreProvider>
         </ReactQueryProvider>
       </body>
