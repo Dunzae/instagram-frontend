@@ -61,18 +61,25 @@ export default function Footer({ className }: FooterProps) {
     ]
 
     return (
-        <div className={mergeStyle(className, "px-4 md:px-0 flex justify-center flex-wrap gap-4")}>
-            {
-                tags.map((tag, index) =>
-                    <div key={index}>
-                        <Link href={tag.href} target="_blank">
-                            <span className="text-xs font-normal leading-4 text-secondary-text break-words ">
-                                {tag.name}
-                            </span>
-                        </Link>
-                    </div>
-                )
-            }
+        <div className={mergeStyle(className,"flex flex-col items-center gap-4")}>
+            <div className="flex text-xs px-4 justify-center flex-wrap gap-4">
+                {
+                    tags.map((tag, index) =>
+                        <div key={index}>
+                            <Link href={tag.href} target="_blank">
+                                <span className=" font-normal text-secondary-text break-words ">
+                                    {tag.name}
+                                </span>
+                            </Link>
+                        </div>
+                    )
+                }
+
+            </div>
+            <div className="text-sm flex gap-2">
+                <span>한국어</span>
+                <span>© 2024-12-02 Instagram from JangDongGun</span>
+            </div>
         </div>
     )
 }
