@@ -61,7 +61,7 @@ export default function Footer({ className }: FooterProps) {
     ]
 
     return (
-        <div className={mergeStyle(className, "flex justify-center flex-wrap gap-4")}>
+        <div className={mergeStyle(className, "px-4 md:px-0 flex justify-center flex-wrap gap-4")}>
             {
                 tags.map((tag, index) =>
                     <div key={index}>
