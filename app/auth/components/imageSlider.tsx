@@ -2,8 +2,13 @@
 import { useEffect, useState } from "react";
 import { motion } from "motion/react"
 import Image from "next/image";
+import { mergeStyle } from "@/app/libs/style";
 
-export default function ImageSlider() {
+export interface ImageSliderProps {
+    className?: string
+}
+
+export default function ImageSlider({ className }: ImageSliderProps) {
     const images = ["/images/screenshot1.png", "/images/screenshot2.png", "/images/screenshot3.png", "/images/screenshot4.png"]
     const variants = {
         active: { opacity: "100%" },
@@ -20,7 +25,7 @@ export default function ImageSlider() {
 
 
     return (
-        <div className="w-[380.32px] h-[580px] bg-[url('/images/home-phones.png')] bg-[length:468.32px_634.15px] bg-[-46px_0] overflow-hidden">
+        <div className={mergeStyle(className, "w-[380.32px] h-[580px] bg-[url('/images/home-phones.png')] bg-[length:468.32px_634.15px] bg-[-46px_0] overflow-hidden")}>
             <div className="mt-[27px] ml-[112px] w-[250px] h-[541px] relative overflow-hidden">
                 {
                     images.map((image, index) =>

@@ -7,8 +7,15 @@ export default function AuthLayout({
 }>) {
     return (
         <>
-            <ImageSlider />
-            {children}
+            <div className="w-full h-full flex items-center justify-center">
+                <ImageSlider className="hidden md:block"/>
+                <div>
+                    {children}
+                </div>
+            </div>
+            <div>
+                
+            </div>
         </>
     )
 }
