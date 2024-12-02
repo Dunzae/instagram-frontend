@@ -9,7 +9,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        "secondary-text" : "rgb(115, 115, 115)"
+        "secondary-text": "rgb(115, 115, 115)",
+        "secondary-background": "rgb(250,250,250)",
+        "stroke": "rgb(219, 219, 219)",
+        "primary-button" : "rgb(0, 149, 246)"
       },
     },
   },

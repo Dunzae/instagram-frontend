@@ -11,9 +11,7 @@ export default function AuthLayout({
         <div className="h-full flex flex-col items-center justify-center">
             <div className="w-full h-full flex items-center justify-center">
                 <ImageSlider className="hidden md:block"/>
-                <div>
-                    {children}
-                </div>
+                {children}
             </div>
             <footer>
                 <Footer className="mb-14"/>
