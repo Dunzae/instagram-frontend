@@ -8,8 +8,8 @@ export default function AuthLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <div className="h-full flex flex-col items-center justify-center">
-            <div className="w-full h-full flex items-center justify-center gap-8">
+        <div className="min-h-full flex flex-col items-center justify-center gap-8">
+            <div className="w-full h-fit flex items-center justify-center gap-8 flex-shrink-0">
                 <ImageSlider className="hidden md:block"/>
                 {children}
             </div>

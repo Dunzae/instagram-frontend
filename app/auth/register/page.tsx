@@ -12,8 +12,8 @@ export default function RegisterPage() {
     const { formAction, error } = useRegister();
 
     return (
-        <div className="max-w-[350px] w-full flex flex-col gap-4 flex-shrink-0">
-            <div className="w-full mt-20 md:mt-3 pb-0 p-6 md:pb-10 flex flex-col items-center bg-white border-spacing-0 md:border md:border-elebated-separtor rounded-sm">
+        <div className="max-w-[350px] w-full h-fit flex flex-col gap-4 flex-shrink-0">
+            <div className="w-full mt-10 md:mt-5 pb-0 p-6 md:pb-10 flex flex-col items-center bg-white border-spacing-0 md:border md:border-elebated-separtor rounded-sm">
                 <Logo className="mb-6" />
                 <div className='mb-4'>
                     <p className="text-center break-words text-base leading-5 font-semibold text-secondary-text">
