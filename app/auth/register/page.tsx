@@ -61,8 +61,8 @@ export default function RegisterPage() {
                     </div>
                     <div className="mb-2">
                         <p className="break-words text-xs text-secondary-text text-center leading-4">
-                            저희 서비스를 이용하는 사람이 회원님의 연락처 정보를 Instagram에 업로드했을 수도 있습니다.
-                            <span><Link href="#">더 알아보기</Link></span>
+                            저희 서비스를 이용하는 사람이 회원님의 연락처 정보를 Instagram에 업로드했을 수도 있습니다.{' '}
+                            <span><Link href="https://www.facebook.com/help/instagram/261704639352628" target="_blank">더 알아보기</Link></span>
                         </p>
                     </div>
                     <div>
