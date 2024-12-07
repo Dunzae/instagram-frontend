@@ -11,12 +11,10 @@ export default function useRegister() {
     const [formState, formAction] = useActionState(RegisterApi, { status: "pending", data: undefined, error: undefined });
 
     useEffect(() => {
-        if (formState.status === "success" && formState.data !== undefined) {
+        if (formState.status === "success" && formState.data !== undefined && toggleLogin !== undefined) {
             const { accessToken } = formState.data;
-
             localStorage.setItem("accessToken", accessToken);
             toggleLogin();
-            router.replace("/");
         }
         else if (formState.status === "error") {
             setError(formState.error);

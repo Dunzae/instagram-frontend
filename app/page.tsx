@@ -1,4 +1,5 @@
 "use client"
+
 import { useAuthStore } from "./zustand/providers/auth";
 
 export default function Home() {

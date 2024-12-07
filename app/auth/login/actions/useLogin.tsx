@@ -14,9 +14,8 @@ export default function useLogin() {
     useEffect(() => {
         if (formState.status === "success" && formState.data !== undefined && toggleLogin !== undefined) {
             const { accessToken } = formState.data;
-            toggleLogin();
             localStorage.setItem("accessToken", accessToken);
-            router.replace("/");
+            toggleLogin();
         }
         else if(formState.status === "error") {
             setError(formState.error);
