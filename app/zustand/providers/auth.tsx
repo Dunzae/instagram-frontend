@@ -1,10 +1,9 @@
 'use client'
 
 import { type ReactNode, createContext, useRef, useContext } from 'react'
-import { useStore } from 'zustand'
+import useCustomStore from '../hooks/useStore'
 
 import { type AuthStore, createAuthStore } from '../stores/auth'
-
 
 export type AuthStoreApi = ReturnType<typeof createAuthStore>
 
@@ -33,12 +32,12 @@ export const AuthStoreProvider = ({
 
 export const useAuthStore = <T,>(
     selector: (store: AuthStore) => T,
-): T => {
+) => {
     const authStoreContext = useContext(AuthStoreContext)
 
     if (!authStoreContext) {
         throw new Error(`useAuthStore must be used within AuthStoreProvider`)
     }
 
-    return useStore(authStoreContext, selector)
+    return useCustomStore(authStoreContext, selector);
 }
