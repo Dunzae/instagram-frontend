@@ -47,7 +47,7 @@ export default async function RegisterApi(prevState: any, formData: any) {
     body.append("nickName", nickName);
 
     try {
-        const response = await fetch("https://localhost/auth/signUp", {
+        const response = await fetch("http://localhost/auth/signUp", {
             method: "POST",
             mode: "cors",
             headers: {
@@ -67,15 +67,14 @@ export default async function RegisterApi(prevState: any, formData: any) {
         return {
             status: "success",
             data: {
-                accessToken: response.headers.get("Access-Token")?.split("Bearer")[1],
-                refreshToken: response.headers.get("Refresh-Token")?.split("Bearer")[1]
+                accessToken: response.headers.get("Authorization")?.split("Bearer")[1] as string,
             }
         }
     } catch (e) {
+        console.error(e);
         return {
             status: "error",
             error: "알 수 없는 오류입니다.",
-            data: undefined
         }
     }
 }

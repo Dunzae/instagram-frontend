@@ -40,13 +40,6 @@ export default function RegisterPage() {
                     </div>
                     <div className="w-full h-9 mb-2">
                         <Input
-                            name="password"
-                            type="password"
-                            placeholder="비밀번호"
-                        />
-                    </div>
-                    <div className="w-full h-9 mb-2">
-                        <Input
                             name="fullName"
                             type="text"
                             placeholder="이름"
@@ -57,6 +50,13 @@ export default function RegisterPage() {
                             name="nickName"
                             type="text"
                             placeholder="별명"
+                        />
+                    </div>
+                    <div className="w-full h-9 mb-2">
+                        <Input
+                            name="password"
+                            type="password"
+                            placeholder="비밀번호"
                         />
                     </div>
                     <div className="mb-2">

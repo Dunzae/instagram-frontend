@@ -1,4 +1,4 @@
-import { mergeStyle } from "@/app/libs/style"
+import { mergeStyle } from "@/libs/style"
 
 export interface LogoProps {
     className?: string

@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "motion/react"
 import Image from "next/image";
-import { mergeStyle } from "@/app/libs/style";
+import { mergeStyle } from "@/libs/style";
 
 export interface ImageSliderProps {
     className?: string

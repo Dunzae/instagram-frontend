@@ -63,7 +63,7 @@ export default async function LoginApi(prevState: any, formData: any) {
         return {
             status: "success",
             data: {
-                accessToken: response.headers.get("Authorization")?.split("Bearer")[1],
+                accessToken: response.headers.get("Authorization")?.split("Bearer")[1] as string,
             }
         }
     } catch (e) {

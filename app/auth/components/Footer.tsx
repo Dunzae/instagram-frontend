@@ -1,4 +1,4 @@
-import { mergeStyle } from "@/app/libs/style"
+import { mergeStyle } from "@/libs/style"
 import Link from "next/link"
 
 export interface FooterProps {

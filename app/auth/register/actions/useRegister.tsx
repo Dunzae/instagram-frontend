@@ -2,23 +2,26 @@
 import { useRouter } from "next/navigation";
 import { useActionState, useEffect, useState } from "react";
 import RegisterApi from "@/auth/register/apis/RegisterApi";
+import { useAuthStore } from "@/zustand/providers/auth";
 
 export default function useRegister() {
     const router = useRouter();
+    const toggleLogin = useAuthStore((state) => state.toggleLogin)
     const [error, setError] = useState<undefined | string>(undefined);
     const [formState, formAction] = useActionState(RegisterApi, { status: "pending", data: undefined, error: undefined });
 
     useEffect(() => {
-        // 회원가입이 성공했을때의 분기처리
         if (formState.status === "success" && formState.data !== undefined) {
-            const { accessToken, refreshToken } = formState.data;
+            const { accessToken } = formState.data;
+
+            localStorage.setItem("accessToken", accessToken);
+            toggleLogin();
             router.replace("/");
         }
         else if (formState.status === "error") {
-            // 로그인이 실패했을 때의 분기처리
             setError(formState.error);
         }
-    }, [formState])
+    }, [router, formState, toggleLogin])
 
     return { formAction, error }
 }

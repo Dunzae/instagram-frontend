@@ -1,7 +1,7 @@
 import { Metadata, Viewport } from "next";
 import "./globals.css";
 import ReactQueryProvider from "./ReactQueryProvider";
-import { CounterStoreProvider } from "./zustand/providers/counter";
+import { AuthStoreProvider } from "./zustand/providers/auth";
 
 export const metadata: Metadata = {
   title: 'instagram',
@@ -23,11 +23,11 @@ export default function RootLayout({
     <html lang="en" className="dark ">
       <body>
         <ReactQueryProvider>
-          <CounterStoreProvider>
+          <AuthStoreProvider>
             <main>
               {children}
             </main>
-          </CounterStoreProvider>
+          </AuthStoreProvider>
         </ReactQueryProvider>
       </body>
     </html>
