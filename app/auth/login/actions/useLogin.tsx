@@ -8,16 +8,14 @@ export default function useLogin() {
     const [formState, formAction] = useActionState(LoginApi, { status: "pending", data: undefined, error: undefined });
 
     useEffect(() => {
-        // 로그인이 성공했을때의 분기처리
-        if (formState.status === "success" && formState.data !== undefined) {
-            const { accessToken, refreshToken } = formState.data;
+        if (formState.status === "success") {
+            const { accessToken } = formState.data;
             router.replace("/");
         }
         else if(formState.status === "error") {
-            // 로그인이 실패했을 때의 분기처리
             setError(formState.error);
         }
-    }, [formState])
+    }, [formState, router])
 
     return { formAction, error }
 }

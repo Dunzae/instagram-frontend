@@ -63,15 +63,14 @@ export default async function LoginApi(prevState: any, formData: any) {
         return {
             status: "success",
             data: {
-                accessToken: response.headers.get("Access-Token")?.split("Bearer")[1],
-                refreshToken: response.headers.get("Refresh-Token")?.split("Bearer")[1]
+                accessToken: response.headers.get("Authorization")?.split("Bearer")[1],
             }
         }
     } catch (e) {
+        console.error(e);
         return {
             status: "error",
             error: "알 수 없는 오류입니다.",
-            data: undefined
         }
     }
 }
