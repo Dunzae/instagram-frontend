@@ -1,10 +1,10 @@
 "use client"
 import Link from "next/link";
-import Or from "@/auth/components/Or";
-import Logo from "@/auth/components/Logo"
-import Input from "@/auth/components/Input"
-import Error from "@/auth/components/Error";
-import AppDownload from "@/auth/components/AppDownload";
+import Or from "@/(auth)/components/Or";
+import Logo from "@/(auth)/components/Logo"
+import Input from "@/(auth)/components/Input"
+import Error from "@/(auth)/components/Error";
+import AppDownload from "@/(auth)/components/AppDownload";
 import useLogin from "./actions/useLogin";
 
 export default function LoginPage() {

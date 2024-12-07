@@ -1,11 +1,11 @@
 "use client"
 import Link from "next/link";
 import Or from "../components/Or";
-import Logo from "@/auth/components/Logo"
-import Input from "@/auth/components/Input"
-import Error from "@/auth/components/Error";
-import AppDownload from "@/auth/components/AppDownload";
-import useRegister from "@/auth/register/actions/useRegister";
+import Logo from "@/(auth)/components/Logo"
+import Input from "@/(auth)/components/Input"
+import Error from "@/(auth)/components/Error";
+import AppDownload from "@/(auth)/components/AppDownload";
+import useRegister from "@/(auth)/register/actions/useRegister";
 
 export default function RegisterPage() {
     const isValid = false;

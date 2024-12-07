@@ -1,7 +1,7 @@
 "use client"
 import { useRouter } from "next/navigation";
 import { useActionState, useEffect, useState } from "react";
-import RegisterApi from "@/auth/register/apis/RegisterApi";
+import RegisterApi from "@/(auth)/register/apis/RegisterApi";
 import { useAuthStore } from "@/zustand/providers/auth";
 
 export default function useRegister() {
