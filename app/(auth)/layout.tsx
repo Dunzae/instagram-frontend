@@ -17,6 +17,7 @@ export default function AuthLayout({
         if(isLogin) router.replace("/");
     }, [isLogin, router])
 
+    if(isLogin === undefined) return <div>Loading</div>
     return (
         <div className="min-h-full flex flex-col items-center justify-center gap-8">
             <div className="w-full h-fit flex items-center justify-center gap-8 flex-shrink-0">
