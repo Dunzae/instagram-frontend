@@ -32,12 +32,12 @@ export const AuthStoreProvider = ({
 
 export const useAuthStore = <T,>(
     selector: (store: AuthStore) => T,
-) => {
+) : (T | undefined) => {
     const authStoreContext = useContext(AuthStoreContext)
 
     if (!authStoreContext) {
         throw new Error(`useAuthStore must be used within AuthStoreProvider`)
     }
 
-    return useCustomStore(authStoreContext, selector);
+    return useCustomStore<AuthStore, T>(authStoreContext, selector);
 }

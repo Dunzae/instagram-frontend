@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { devtools, persist, createJSONStorage } from 'zustand/middleware';
+import { devtools, persist } from 'zustand/middleware';
 
 export type AuthState = {
     login: boolean
@@ -18,25 +18,20 @@ export const defaultInitState: AuthState = {
 export const createAuthStore = (
     initState: AuthState = defaultInitState,
 ) => {
-    const useDevStore = create<AuthStore>()(
-        devtools(persist((set) => ({
-            ...initState,
-            toggleLogin: () => set((state) => ({ login: !state.login })),
-        }),
-        {
-            name: 'authStorage',
-            storage: createJSONStorage(() => sessionStorage),
-          },
-        )
-    ))
-
     const useStore = create<AuthStore>()(
-        (set) => ({
-            ...initState,
-            toggleLogin: () => set((state) => ({ login: !state.login })),
-        })
+        devtools(
+            persist(
+                (set) => ({
+                    ...initState,
+                    toggleLogin: () => set((state) => ({ login: !state.login })),
+                }),
+                {
+                    name: 'authStorage',
+                },
+            )
+        )
     )
 
-    return process.env.NODE_ENV === "development" ? useDevStore : useStore;
+    return useStore;
 }
 

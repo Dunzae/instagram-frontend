@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react'
 
 const useCustomStore = <T, F>(
-  store: (selector: (store: T) => F) => F,
+  store: (selector: (store: T) => unknown) => unknown,
   callback: (state: T) => F,
 ) => {
   const result = store(callback) as F
-  const [data, setData] = useState<F | undefined>(undefined)
+  const [data, setData] = useState<F>()
 
   useEffect(() => {
-    setData(result)
+    if(typeof result === "function") setData(() => result)
+    else setData(result)
   }, [result])
 
   return data
