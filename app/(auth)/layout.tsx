@@ -10,7 +10,7 @@ export default function AuthLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const isLogin = useAuthStore((state) => state.login);
+    const isLogin = useAuthStore((state) => state.isLogin);
     const router = useRouter();
 
     useEffect(() => {

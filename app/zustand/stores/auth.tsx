@@ -2,17 +2,18 @@ import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware';
 
 export type AuthState = {
-    login: boolean
+    isLogin: boolean
 }
 
 export type AuthActions = {
-    toggleLogin : () => void
+    login : () => void,
+    logout : () => void,
 }
 
 export type AuthStore = AuthState & AuthActions
 
 export const defaultInitState: AuthState = {
-    login : false
+    isLogin : false
 }
 
 export const createAuthStore = (
@@ -23,7 +24,8 @@ export const createAuthStore = (
             persist(
                 (set) => ({
                     ...initState,
-                    toggleLogin: () => set((state) => ({ login: !state.login })),
+                    login: () => set(() => ({ isLogin: true })),
+                    logout : () => set(() => ({ isLogin : false}))
                 }),
                 {
                     name: 'authStorage',
