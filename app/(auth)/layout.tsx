@@ -2,7 +2,6 @@
 import ImageSlider from "./components/ImageSlider"
 import Footer from "./components/Footer";
 import { useAuthStore } from "@/zustand/providers/auth";
-import { useEffect } from "react";
 import { redirect } from "next/navigation";
 import Loading from "@/components/loading";
 
@@ -11,13 +10,13 @@ export default function AuthLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const {value : isLogin, setting} = useAuthStore((state) => state.isLogin);
+    const isLogin = useAuthStore((state) => state.isLogin);
+    const hasHydrated = useAuthStore((state) => state._hasHydrated);
 
-    useEffect(() => {
-        if(setting.persist.hasHydrated() && isLogin) redirect("/");
-    }, [isLogin, setting])
 
-    if(isLogin === undefined) return <Loading />
+    if(!hasHydrated) return <Loading />
+    if(hasHydrated && isLogin) redirect("/");
+
     return (
         <div className="min-h-full flex flex-col items-center justify-center gap-8">
             <div className="w-full h-fit flex items-center justify-center gap-8 flex-shrink-0">

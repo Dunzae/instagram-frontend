@@ -39,8 +39,5 @@ export const useAuthStore = <T,>(
         throw new Error(`useAuthStore must be used within AuthStoreProvider`)
     }
 
-    return {
-        value : useCustomStore<AuthStore, T>(authStoreContext, selector),
-        setting : authStoreContext
-    };
+    return useCustomStore<AuthStore, T>(authStoreContext, selector);
 }
