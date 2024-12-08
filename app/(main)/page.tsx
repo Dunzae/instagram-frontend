@@ -1,18 +1,18 @@
 "use client"
 
 import { useAuthStore } from "@/zustand/providers/auth";
-import { useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
+import Loading from "@/components/loading";
 
 export default function Home() {
-    const isLogin = useAuthStore((state) => state.isLogin);
-    const router = useRouter();
+    const { value : isLogin, setting } = useAuthStore((state) => state.isLogin);
 
-    if (isLogin === undefined) {
-        return <div>Loading</div>
+    if (!setting.persist.hasHydrated()) {
+        return <Loading />
     }
 
     if (isLogin === false) {
-        router.replace("/login");
+        redirect("/login")
     }
 
     return (
