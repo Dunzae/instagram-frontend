@@ -2,22 +2,22 @@
 import ImageSlider from "./components/ImageSlider"
 import Footer from "./components/Footer";
 import { useAuthStore } from "@/zustand/providers/auth";
-import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { redirect } from "next/navigation";
+import Loading from "@/components/loading";
 
 export default function AuthLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const isLogin = useAuthStore((state) => state.isLogin);
-    const router = useRouter();
+    const {value : isLogin, setting} = useAuthStore((state) => state.isLogin);
 
     useEffect(() => {
-        if(isLogin) router.replace("/");
-    }, [isLogin, router])
+        if(setting.persist.hasHydrated() && isLogin) redirect("/");
+    }, [isLogin, setting])
 
-    if(isLogin === undefined) return <div>Loading</div>
+    if(isLogin === undefined) return <Loading />
     return (
         <div className="min-h-full flex flex-col items-center justify-center gap-8">
             <div className="w-full h-fit flex items-center justify-center gap-8 flex-shrink-0">
