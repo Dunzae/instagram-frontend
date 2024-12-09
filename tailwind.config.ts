@@ -14,8 +14,12 @@ export default {
         "stroke": "rgb(219, 219, 219)",
         "primary-button": "rgb(0, 149, 246)",
         "link": "rgb(0, 55, 107)",
-        "elevated-seperator": "rgb(219,219,219)"
+        "elevated-seperator": "rgb(219,219,219)",
+        "ig-seperator" : "rgb(38,38,38)"
       },
+      transitionProperty : {
+        "width" : "width"
+      }
     },
   },
   plugins: [],

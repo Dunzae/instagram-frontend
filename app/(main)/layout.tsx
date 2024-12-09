@@ -2,6 +2,7 @@
 import { useAuthStore} from "@/zustand/providers/auth";
 import { redirect } from "next/navigation";
 import Loading from "@/components/loading";
+import MenuBar from "./components/MenuBar";
 
 export default function Home({
     children
@@ -21,6 +22,7 @@ export default function Home({
 
     return (
         <div className="flex w-full h-full">
+            <MenuBar />
             {children}
         </div>
     );
